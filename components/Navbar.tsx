@@ -6,8 +6,7 @@ import { useState, useEffect } from 'react'
 import Logo, { LogoIcon } from '@/components/Logo'
 
 const navLinks = [
-  { href: '/', label: 'Home', icon: 'home' },
-  { href: '/product', label: 'Product', icon: 'inventory_2' },
+  { href: '/products', label: 'Products', icon: 'inventory_2' },
   { href: '/gateway', label: 'Payment Gateway', icon: 'payment' },
   { href: '/developers', label: 'Developers', icon: 'code' },
   { href: '/blog', label: 'Blog', icon: 'article' },
@@ -172,7 +171,7 @@ export default function Navbar() {
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </Link>
             <p className="text-center text-xs text-on-surface-variant">
-              Trusted by 10,000+ businesses worldwide
+              Trusted by 500+ businesses worldwide
             </p>
           </div>
         </div>

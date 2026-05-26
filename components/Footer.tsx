@@ -3,11 +3,11 @@ import Logo from '@/components/Logo'
 
 const footerLinks = {
   Products: [
-    { label: 'Features', href: '/product' },
+    { label: 'Features', href: '/products' },
     { label: 'Payment Gateway', href: '/gateway' },
-    { label: 'Security', href: '/product' },
+    { label: 'Security', href: '/products' },
     { label: 'Developers', href: '/developers' },
-    { label: 'Integrations', href: '/product' },
+    { label: 'Integrations', href: '/products' },
   ],
   Resources: [
     { label: 'Blog', href: '/blog' },

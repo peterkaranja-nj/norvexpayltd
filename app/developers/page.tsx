@@ -247,7 +247,7 @@ export default function DevelopersPage() {
             <div className="relative z-10 max-w-2xl mx-auto">
               <h2 className="font-headline-lg text-headline-lg mb-6">Ready to build something great?</h2>
               <p className="font-body-lg text-body-lg opacity-90 mb-12">
-                Join 10,000+ developers building the future of commerce on NorveXPay. Get started with your free test account today.
+                Join 500+ developers building the future of commerce on NorveXPay. Get started with your free test account today.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
                 <Link

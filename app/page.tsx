@@ -359,7 +359,7 @@ await pay.charges.create({
                 Ready to scale your global business?
               </h2>
               <p className="text-surface-variant text-body-lg leading-relaxed opacity-80">
-                Join over 10,000+ forward-thinking businesses using NorveXPay to simplify their financial stack and maximize growth.
+                Join over 500+ forward-thinking businesses using NorveXPay to simplify their financial stack and maximize growth.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-5 shrink-0 w-full md:w-auto">

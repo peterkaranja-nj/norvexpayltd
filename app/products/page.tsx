@@ -1,47 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import TrustStripe from '@/components/TrustStripe'
 import FloatingShapes from '@/components/FloatingShapes'
 import ScrollReveal from '@/components/ScrollReveal'
+import ProductFlipCards from '@/components/ProductFlipCards'
 
 export const metadata: Metadata = {
-  title: 'Product - Secure Payment Solutions',
-  description: 'Everything you need to accept payments, manage transactions, and grow your business. NorveXPay is a complete payment solution built for businesses of all sizes.',
+  title: 'Products - Secure Payment Solutions',
+  description: 'Explore NorveXPay\'s suite of payment products. From enterprise payment gateway to mobile money collection — built for businesses of all sizes.',
 }
-
-const features = [
-  {
-    icon: 'credit_card',
-    title: 'Multiple Payment Methods',
-    desc: 'Accept payments via cards, UPI, net banking, wallets, and EMI. Give your customers the freedom to pay how they prefer.',
-  },
-  {
-    icon: 'security',
-    title: 'Advanced Security',
-    desc: 'We use industry-leading security and fraud detection to keep your transactions and customer data safe at all times.',
-  },
-  {
-    icon: 'code',
-    title: 'Easy Integration',
-    desc: 'Integrate in minutes with our simple APIs, SDKs, and plugins. Well-documented and developer friendly for fast deployment.',
-  },
-  {
-    icon: 'analytics',
-    title: 'Real-time Analytics',
-    desc: 'Get real-time insights into your transactions, sales, refunds, and settlements all in one powerful unified dashboard.',
-  },
-  {
-    icon: 'sync',
-    title: 'Smart Automation',
-    desc: 'Automate recurring payments, invoices, reminders, and reconciliations to save time and reduce repetitive manual work.',
-  },
-  {
-    icon: 'public',
-    title: 'Global Reach',
-    desc: 'Accept payments from customers worldwide with multi-currency support and localized payment options for every region.',
-  },
-]
 
 const whyChoose = [
   {
@@ -66,9 +33,30 @@ const whyChoose = [
   },
 ]
 
-export default function ProductPage() {
+export default function ProductsPage() {
   return (
     <>
+      <style>{`
+        .flip-card { perspective: 1200px; }
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.85s cubic-bezier(0.4, 0.2, 0.2, 1);
+          transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-face {
+          position: absolute;
+          inset: 0;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          border-radius: 1.5rem;
+          overflow: hidden;
+        }
+        .flip-card-back { transform: rotateY(180deg); }
+      `}</style>
+
       {/* ── Hero ── */}
       <section className="relative pt-6 sm:pt-10 pb-16 sm:pb-24 px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
         <FloatingShapes />
@@ -80,15 +68,15 @@ export default function ProductPage() {
             >
               bolt
             </span>
-            <span className="text-primary font-label-caps text-label-caps">Powerful. Flexible. Reliable.</span>
+            <span className="text-primary font-label-caps text-label-caps">Powerful. Flexible. Global.</span>
           </div>
 
           <h1 className="font-headline-lg text-headline-lg-mobile lg:font-display-xl lg:text-display-xl text-on-background">
-            Our Product
+            Our Products
           </h1>
 
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-            Everything you need to accept payments, manage transactions, and grow your business. NorveXPay is a complete payment solution built for businesses of all sizes.
+            A complete suite of payment tools engineered for global commerce. Accept payments on every continent, reach mobile-first markets, and scale without limits.
           </p>
 
           <div className="flex flex-wrap gap-6 pt-2">
@@ -109,13 +97,13 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Product image with hover effect */}
+        {/* Hero image */}
         <div className="relative group lg:order-1">
           <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 -z-10" />
           <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/product.png"
-              alt="NorveXPay Product Dashboard"
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+              alt="NorveXPay Products Suite"
               width={700}
               height={525}
               className="w-full object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.03] rounded-2xl"
@@ -147,69 +135,22 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* ── Trust Badges ── */}
-      <div className="mt-16 lg:mt-24">
-        <section className="bg-surface border-y border-outline-variant/15 py-8">
-          <div className="max-w-container-max mx-auto px-gutter">
-            <div className="flex flex-wrap justify-center md:justify-between items-center gap-8">
-              {[
-                { icon: 'gpp_good', label: 'PCI DSS Compliant', sub: 'Level 1 Certified' },
-                { icon: 'encrypted', label: '256-bit Encryption', sub: 'End-to-End Secure' },
-                { icon: 'monitoring', label: '99.99% Uptime', sub: 'SLA Guaranteed' },
-                { icon: 'hub', label: 'Global Infrastructure', sub: '47+ Countries' },
-              ].map(({ icon, label, sub }) => (
-                <div key={label} className="flex items-center gap-3 group">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-300 shrink-0">
-                    <span
-                      className="material-symbols-outlined text-primary text-[22px] group-hover:text-white transition-colors duration-300"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {icon}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-on-surface leading-tight">{label}</p>
-                    <p className="text-[11px] text-on-surface-variant mt-0.5">{sub}</p>
-                  </div>
-                </div>
-              ))}
+      {/* ── Products — marquee flip cards ── */}
+      <section className="py-20 overflow-hidden">
+        <div className="max-w-container-max mx-auto px-gutter">
+          <ScrollReveal>
+            <div className="text-center space-y-2 mb-12">
+              <span className="text-primary font-label-caps text-label-caps uppercase tracking-widest">What We Offer</span>
+              <h2 className="font-headline-lg text-headline-lg text-on-background">Built for Every Market</h2>
+              <p className="text-on-surface-variant max-w-xl mx-auto mt-3">
+                Four products. One platform. Hover any card to see what is inside.
+              </p>
+              <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
             </div>
-          </div>
-        </section>
-
-        {/* ── Trust Stripe ── */}
-        <TrustStripe />
-      </div>
-
-      {/* ── Features Grid ── */}
-      <section className="py-20 px-gutter max-w-container-max mx-auto">
-        <ScrollReveal>
-          <div className="text-center space-y-2 mb-12">
-            <span className="text-primary font-label-caps text-label-caps uppercase tracking-widest">Features</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-background">Everything You Need in One Platform</h2>
-            <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map(({ icon, title, desc }, i) => (
-            <div
-              key={title}
-              className="glass-card p-6 rounded-xl hover:-translate-y-1 transition-all group"
-              style={{ boxShadow: '0px 4px 20px rgba(204, 136, 0, 0.08)' }}
-              data-animate
-              data-delay={String((i % 3) * 100)}
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">
-                  {icon}
-                </span>
-              </div>
-              <h3 className="font-headline-md text-headline-md mb-3">{title}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">{desc}</p>
-            </div>
-          ))}
+          </ScrollReveal>
         </div>
+
+        <ProductFlipCards />
       </section>
 
       {/* ── Why Choose NorveXPay ── */}
@@ -269,7 +210,6 @@ export default function ProductPage() {
           className="max-w-container-max mx-auto rounded-3xl p-8 sm:p-12 lg:p-20 text-white text-center relative overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #B07800 0%, #E8A020 100%)' }}
         >
-          {/* Dot pattern */}
           <div className="absolute top-0 right-0 p-12 opacity-10">
             <div className="grid grid-cols-4 gap-3">
               {Array.from({ length: 12 }).map((_, i) => (
@@ -279,10 +219,10 @@ export default function ProductPage() {
           </div>
 
           <h2 className="font-headline-lg text-headline-lg lg:text-5xl font-extrabold mb-6 relative z-10">
-            Ready to build something great?
+            Ready to go global?
           </h2>
           <p className="font-body-lg text-body-lg opacity-90 max-w-2xl mx-auto mb-12 relative z-10">
-            Join thousands of businesses using NorveXPay to power their payments and scale their operations globally.
+            Join thousands of businesses across 195+ countries using NorveXPay to power their payments and expand into new markets.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
             <Link

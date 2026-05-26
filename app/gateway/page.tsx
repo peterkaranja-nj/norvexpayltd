@@ -141,80 +141,41 @@ export default function GatewayPage() {
         </div>
       </section>
 
-      {/* ── Developer Focus (Dark) ── */}
-      <section className="py-24 bg-inverse-surface text-white">
-        <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-          <div>
-            <h2 className="font-headline-lg text-headline-lg mb-6 leading-tight">
-              Built for developers, <br />
-              <span className="text-primary">by developers.</span>
-            </h2>
-            <p className="text-body-lg font-body-lg text-surface-variant/80 mb-10">
-              Integrate our powerful API with just a few lines of code. Support for all modern frameworks and languages out of the box.
-            </p>
-            <div className="space-y-4">
-              {[
-                'SDKs for Node.js, Python, Ruby, and Go',
-                'Webhooks for real-time notifications',
-                'Sandbox environment for safe testing',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-4">
-                  <span
-                    className="material-symbols-outlined text-primary"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    check_circle
-                  </span>
-                  <span className="font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
+      {/* ── Features Grid ── */}
+      <section className="py-20 px-gutter max-w-container-max mx-auto">
+        <ScrollReveal>
+          <div className="text-center space-y-2 mb-12">
+            <span className="text-primary font-label-caps text-label-caps uppercase tracking-widest">Features</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-background">Everything You Need in One Platform</h2>
+            <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
           </div>
+        </ScrollReveal>
 
-          {/* Code block */}
-          <div style={{ boxShadow: '0 0 20px rgba(204, 136, 0, 0.15)' }} className="rounded-2xl border border-white/10 bg-[#0a0c10] p-1 overflow-hidden">
-            <div className="bg-[#1c1f26] px-4 py-2 border-b border-white/5 flex items-center gap-2">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { icon: 'credit_card', title: 'Multiple Payment Methods', desc: 'Accept payments via cards, UPI, net banking, wallets, and EMI. Give your customers the freedom to pay how they prefer.' },
+            { icon: 'security', title: 'Advanced Security', desc: 'We use industry-leading security and fraud detection to keep your transactions and customer data safe at all times.' },
+            { icon: 'code', title: 'Easy Integration', desc: 'Integrate in minutes with our simple APIs, SDKs, and plugins. Well-documented and developer friendly for fast deployment.' },
+            { icon: 'analytics', title: 'Real-time Analytics', desc: 'Get real-time insights into your transactions, sales, refunds, and settlements all in one powerful unified dashboard.' },
+            { icon: 'sync', title: 'Smart Automation', desc: 'Automate recurring payments, invoices, reminders, and reconciliations to save time and reduce repetitive manual work.' },
+            { icon: 'public', title: 'Global Reach', desc: 'Accept payments from customers worldwide with multi-currency support and localized payment options for every region.' },
+          ].map(({ icon, title, desc }, i) => (
+            <div
+              key={title}
+              className="glass-card p-6 rounded-xl hover:-translate-y-1 transition-all group"
+              style={{ boxShadow: '0px 4px 20px rgba(204, 136, 0, 0.08)' }}
+              data-animate
+              data-delay={String((i % 3) * 100)}
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">
+                  {icon}
+                </span>
               </div>
-              <div className="mx-auto text-xs text-white/40 font-code-snippet">checkout.js</div>
+              <h3 className="font-headline-md text-headline-md mb-3">{title}</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant">{desc}</p>
             </div>
-            <div className="p-6 font-code-snippet text-sm overflow-x-auto">
-              <pre className="text-blue-400">
-                {'const '}
-                <span className="text-white">norvexpay</span>
-                {' = '}
-                <span className="text-yellow-400">require</span>
-                {'('}
-                <span className="text-green-400">&apos;@norvexpay/sdk&apos;</span>
-                {');'}
-              </pre>
-              <pre className="mt-2 text-white">{'const session = await norvexpay.sessions.create({'}</pre>
-              <pre className="text-surface-variant">
-                {'  payment_method_types: ['}
-                <span className="text-green-400">&apos;card&apos;</span>
-                {'],'}
-              </pre>
-              <pre className="text-surface-variant">{'  line_items: [{'}</pre>
-              <pre className="text-surface-variant">
-                {'    price_data: { currency: '}
-                <span className="text-green-400">&apos;usd&apos;</span>
-                {', product: '}
-                <span className="text-green-400">&apos;prod_id&apos;</span>
-                {' },'}
-              </pre>
-              <pre className="text-surface-variant">{'    quantity: 1,'}</pre>
-              <pre className="text-surface-variant">{'  }],'}</pre>
-              <pre className="text-white">
-                {'  mode: '}
-                <span className="text-green-400">&apos;payment&apos;</span>
-                {','}
-              </pre>
-              <pre className="text-white">{'});'}</pre>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -402,17 +363,20 @@ export default function GatewayPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 relative">
-              <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[120px] opacity-40" />
-              <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHspb3Tc4hKWIPoWCUvnOLOnNqAsmpvhJwtzb-U8yJ4HUtSlIdGuBC3IokyOq6qp2ETIgRXIzAwqi79DnOM3HDC0iIxrYDwCf8xa2ocAZ3USSQwH6tA0DO5jE1_uniQ1w2UUXMeJFHrVQlzxVi9J3pfpiWOfirjLxWS7PJhi8CfgQU3Bycd1hEkWs-j0VoSXYvI6uRwYqyzlPiRMcErc8h6bNHmDgsLmQZwkbAHT8UKdjoCLHeTGTXB8fgqd5Id0RtaiKOPmbxeVc"
-                alt="Dashboard Preview"
-                width={800}
-                height={550}
-                className="relative rounded-3xl border border-outline-variant/20 w-full"
-                style={{ boxShadow: '0px 12px 48px rgba(204, 136, 0, 0.1)' }}
-                unoptimized
-              />
+            <div className="lg:col-span-7 relative group">
+              <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[120px] opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+              <div className="relative overflow-hidden rounded-3xl border border-outline-variant/20">
+                <Image
+                  src="/product.png"
+                  alt="NorveXPay Dashboard Preview"
+                  width={800}
+                  height={550}
+                  className="w-full transition-transform duration-700 group-hover:scale-[1.04]"
+                  style={{ boxShadow: '0px 12px 48px rgba(204, 136, 0, 0.1)' }}
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
             </div>
           </div>
         </div>
@@ -429,7 +393,7 @@ export default function GatewayPage() {
                 Ready to scale your global business?
               </h2>
               <p className="text-surface-variant text-body-lg leading-relaxed opacity-80">
-                Join over 10,000+ forward-thinking businesses using NorveXPay to simplify their financial stack and maximize growth.
+                Join over 500+ forward-thinking businesses using NorveXPay to simplify their financial stack and maximize growth.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 shrink-0 w-full md:w-auto">
