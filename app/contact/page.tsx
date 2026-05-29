@@ -300,7 +300,7 @@ export default function ContactPage() {
               </p>
               <div className="pt-4">
                 <Link
-                  href="/developers"
+                  href="/contact"
                   className="text-primary font-semibold flex items-center justify-center gap-1 hover:gap-2 transition-all"
                 >
                   View API Status

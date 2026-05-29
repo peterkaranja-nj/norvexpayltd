@@ -46,10 +46,10 @@ export default function GatewayPage() {
                 Start Processing Now
               </Link>
               <Link
-                href="/developers"
+                href="/contact"
                 className="border-2 border-outline-variant text-on-surface-variant bg-white px-10 py-5 rounded-2xl font-bold text-lg hover:border-primary hover:text-primary transition-all text-center"
               >
-                View API Docs
+                Contact Us
               </Link>
             </div>
 
@@ -377,6 +377,54 @@ export default function GatewayPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Path to Live ── */}
+      <section className="py-24 overflow-hidden">
+        <div className="max-w-container-max mx-auto px-gutter">
+          <div className="text-center mb-16">
+            <span className="text-primary font-label-caps text-label-caps tracking-widest uppercase">The Path to Live</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-background mt-2" data-animate>
+              Launch in Three Simple Steps
+            </h2>
+          </div>
+          <div className="relative">
+            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-1 bg-outline-variant/20 -z-10 rounded-full overflow-hidden">
+              <div className="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(204,136,0,0.5)] progress-line-fill" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center">
+              {[
+                { step: '1', title: 'Sign Up', desc: 'Create your account and get instant access to the sandbox environment to start testing.', active: true, icon: 'how_to_reg' },
+                { step: '2', title: 'Integrate', desc: 'Use our SDKs or direct API calls to connect your platform and test with virtual cards.', active: true, icon: 'integration_instructions' },
+                { step: '3', title: 'Go Live', desc: 'Complete your profile, switch your API keys to production, and start processing payments.', active: false, icon: 'rocket_launch' },
+              ].map(({ step, title, desc, active, icon }, i) => (
+                <div key={step} className="flex flex-col items-center" data-animate data-delay={String(i * 150)}>
+                  <div className="relative mb-10">
+                    <div
+                      className={`relative w-24 h-24 rounded-full flex items-center justify-center border-4 border-surface ring-8 transition-all duration-300 hover:scale-110 ${
+                        active
+                          ? 'accent_gradient text-white ring-primary-fixed/30 animate-step-pulse'
+                          : 'bg-surface-container-high text-outline ring-transparent'
+                      }`}
+                    >
+                      <span
+                        className="material-symbols-outlined text-[40px]"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        {icon}
+                      </span>
+                    </div>
+                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-surface border border-outline-variant/30 rounded-full w-8 h-8 flex items-center justify-center text-xs font-black text-primary shadow-sm">
+                      {step}
+                    </div>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md mb-3">{title}</h3>
+                  <p className="text-secondary font-body-md">{desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

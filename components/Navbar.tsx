@@ -8,7 +8,6 @@ import Logo, { LogoIcon } from '@/components/Logo'
 const navLinks = [
   { href: '/products', label: 'Products', icon: 'inventory_2' },
   { href: '/gateway', label: 'Payment Gateway', icon: 'payment' },
-  { href: '/developers', label: 'Developers', icon: 'code' },
   { href: '/blog', label: 'Blog', icon: 'article' },
   { href: '/contact', label: 'Contact', icon: 'mail' },
 ]
@@ -44,8 +43,8 @@ export default function Navbar() {
           {/* Logo */}
           <Logo size={34} textClass="font-headline-md text-headline-md" />
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Nav — pushed right */}
+          <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8">
             {navLinks.map(({ href, label }) => {
               const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
               return (

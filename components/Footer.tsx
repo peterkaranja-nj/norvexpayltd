@@ -6,15 +6,15 @@ const footerLinks = {
     { label: 'Features', href: '/products' },
     { label: 'Payment Gateway', href: '/gateway' },
     { label: 'Security', href: '/products' },
-    { label: 'Developers', href: '/developers' },
+    { label: 'Developers', href: '/contact' },
     { label: 'Integrations', href: '/products' },
   ],
   Resources: [
     { label: 'Blog', href: '/blog' },
     { label: 'Contact Us', href: '/contact' },
     { label: 'Help Center', href: '/contact' },
-    { label: 'Documentation', href: '/developers' },
-    { label: 'API Status', href: '/developers' },
+    { label: 'Documentation', href: '/contact' },
+    { label: 'API Status', href: '/contact' },
   ],
   Legal: [
     { label: 'Terms of Service', href: '/legal#terms' },
